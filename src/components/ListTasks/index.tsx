@@ -16,15 +16,17 @@ export function ListTasks() {
         </div>
       </header>
       <section className={styles.tasks}>
-        {tasks.map((task) => {
-          return (
-            <Task
-              key={task.id}
-              isCompleted={task.isCompleted}
-              text={task.text}
-            />
-          );
-        })}
+        {tasks
+          .sort((a, b) => Number(a.isCompleted) - Number(b.isCompleted))
+          .map((task) => {
+            return (
+              <Task
+                key={task.id}
+                isCompleted={task.isCompleted}
+                text={task.text}
+              />
+            );
+          })}
       </section>
     </div>
   );
