@@ -1,13 +1,19 @@
-import { useState } from "react";
-import { tasks as tasksMock } from "../../core/data/tasks.mock";
 import { Task as TaskModel } from "../../core/models/Task";
 import { Task } from "../Task";
 import styles from "./ListTasks.module.scss";
 
-export function ListTasks() {
-  const [tasks, setTasks] = useState<TaskModel[]>(tasksMock);
+interface ListTasksProps {
+  tasks: TaskModel[];
+  onCompleteTask: (id: string) => void;
+  onDeleteTask: (id: string) => void;
+}
 
-  const completedTasks = tasks.reduce(
+export function ListTasks({
+  tasks,
+  onCompleteTask,
+  onDeleteTask,
+}: ListTasksProps) {
+  const completedTasksCount = tasks.reduce(
     (prev, current) => (current.isCompleted ? prev + 1 : prev),
     0
   );
@@ -22,7 +28,7 @@ export function ListTasks() {
         <div>
           <p className={styles.concludedTasks}>Concluídas</p>
           <span className={styles.badge}>
-            {completedTasks} de {tasks.length}
+            {completedTasksCount} de {tasks.length}
           </span>
         </div>
       </header>
@@ -33,8 +39,11 @@ export function ListTasks() {
             return (
               <Task
                 key={task.id}
+                id={task.id}
                 isCompleted={task.isCompleted}
                 text={task.text}
+                onCompletedTask={onCompleteTask}
+                onDeleteTask={onDeleteTask}
               />
             );
           })}
