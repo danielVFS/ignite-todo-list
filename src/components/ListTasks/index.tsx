@@ -1,5 +1,5 @@
-import { Trash } from "phosphor-react";
 import { tasks } from "../../core/data/tasks.mock";
+import { Task } from "../Task";
 import styles from "./ListTasks.module.scss";
 
 export function ListTasks() {
@@ -18,17 +18,11 @@ export function ListTasks() {
       <section className={styles.tasks}>
         {tasks.map((task) => {
           return (
-            <div key={task.id}>
-              <div>
-                <input
-                  type="checkbox"
-                  name="readTask"
-                  checked={task.isCompleted}
-                />
-                <p>{task.text}</p>
-              </div>
-              <Trash />
-            </div>
+            <Task
+              key={task.id}
+              isCompleted={task.isCompleted}
+              text={task.text}
+            />
           );
         })}
       </section>
