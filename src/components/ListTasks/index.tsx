@@ -5,17 +5,17 @@ import styles from "./ListTasks.module.scss";
 export function ListTasks() {
   return (
     <div className={styles.listTasks}>
-      <header>
+      <header className={styles.header}>
         <div>
-          <p>Tarefas Criadas</p>
-          <span>5</span>
+          <p className={styles.createdTasks}>Tarefas Criadas</p>
+          <span className={styles.badge}>5</span>
         </div>
         <div>
-          <p>Concluídas</p>
-          <span>2 de 5</span>
+          <p className={styles.concludedTasks}>Concluídas</p>
+          <span className={styles.badge}>2 de 5</span>
         </div>
       </header>
-      <section>
+      <section className={styles.tasks}>
         {tasks.map((task) => {
           return (
             <div key={task.id}>
