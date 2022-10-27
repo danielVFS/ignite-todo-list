@@ -30,7 +30,7 @@ Ignite Todo-list - Todo-list desenvolvido com React.js para listage de tarefas Ã
 
 <h4 align="center">
   <br>
-  <img alt="Frontend" src="https://user-images.githubusercontent.com/54604875/198391395-4c64c16a-3cd8-4f4e-a466-a2dac098a278.gif">
+  <img alt="Frontend" src="https://user-images.githubusercontent.com/54604875/198391871-46f20cbf-cc4c-4487-9ff0-d5ffa3f824ab.gif">
 </h4>
 
 <br>
